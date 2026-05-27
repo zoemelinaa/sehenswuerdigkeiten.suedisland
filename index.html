@@ -109,16 +109,43 @@
         background: #1e3c72;
       }
 
-      .journey-map {
+      .journey-image {
         margin-top: 18px;
-        min-height: 320px;
         border-radius: 18px;
         overflow: hidden;
         border: 1px solid rgba(0, 0, 0, 0.08);
+        background: #f7fbff;
       }
 
-      .journey-map.hidden {
+      .journey-image.hidden {
         display: none;
+      }
+
+      .journey-image svg {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .journey-image .marker {
+        fill: #ffb400;
+        stroke: #1e3c72;
+        stroke-width: 2;
+      }
+
+      .journey-image .marker-label {
+        font-size: 0.9rem;
+        fill: #1e3c72;
+        font-weight: bold;
+      }
+
+      .journey-line {
+        fill: none;
+        stroke: #ff4da6;
+        stroke-width: 4;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        opacity: 0.9;
       }
 
       .journey-summary {
@@ -182,9 +209,29 @@
         margin-bottom: 50px;
       }
 
-      .map-container iframe {
+      .map-image {
         width: 100%;
-        height: 450px;
+        border-radius: 16px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      .map-image svg {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .marker {
+        fill: #2a5298;
+        stroke: #fff;
+        stroke-width: 3px;
+      }
+
+      .marker-label {
+        font: 600 0.85rem sans-serif;
+        fill: #1e3c72;
       }
 
       h2 {
@@ -221,40 +268,21 @@
 
     <div class="content" id="content">
       <div class="map-container">
-        <iframe
-          id="karte"
-          style="border:0;"
-          loading="lazy"
-          allowfullscreen
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d370796.48314052083!2d-22.576565545419865!3d64.7305487423921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48d4d7096897b7bb%3A0xf1f8c0560d6f27b5!2sIceland!5e0!3m2!1sde!2sde!4v1700000000000"
-        ></iframe>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <h2>DEINE REISE</h2>
-        </div>
-        <div class="card-content">
-          <p>
-            Hier siehst du die geplante Route für alle fünf oben aufgeführten Sehenswürdigkeiten. Drücke auf den Button, um die Karte mit allen Standorten und der Verbindungsstrecke zu öffnen.
-          </p>
-          <button class="journey-button" id="journeyButton">REISEPLAN ANZEIGEN</button>
-          <div class="journey-map hidden" id="journeyMap">
-            <iframe
-              title="Route durch Island"
-              width="100%"
-              height="320"
-              style="border:0;"
-              loading="lazy"
-              allowfullscreen
-              src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d775345.0603347738!2d-21.255255948420297!3d64.3516437230752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!4m12!1m1!1s0x48d4d6f2e0f72f17:0x1a87d3f3d0285e4a!2m1!1sDiamond+Beach+Iceland!3m2!1d-16.2435!2d64.0382!4m2!1d-19.0362!2d63.8805!4m2!1d-19.0087!2d63.925!4m2!1d-21.9426!2d64.1466!4m2!1d-20.2975!2d64.3122"
-            ></iframe>
-          </div>
-          <div class="journey-summary">
-            <p>Empfohlen: plane etwa 5 bis 6 Stunden reine Fahrzeit ein, um die gesamte Strecke zu fahren.</p>
-            <p>Fahrtzeiten (ungefähr): Diamond Beach → Black Sand Beach: ca. 2,5 Stunden; Black Sand Beach → Seljalandsfoss: ca. 30 Minuten; Seljalandsfoss → Reykjavik: ca. 1 Stunde 45 Minuten; Reykjavik → Großer Geisir: ca. 1 Stunde.</p>
-            <p>Island hat natürlich noch viel mehr zu bieten, aber mit dieser Route deckst du die berühmtesten Sehenswürdigkeiten in Südisland gut ab.</p>
-          </div>
+        <div class="map-image">
+          <svg viewBox="0 0 600 700" role="img" aria-label="Illustration von Island mit markierten Sehenswürdigkeiten">
+            <rect width="600" height="700" fill="#dbeafc" />
+            <path d="M120 620 C140 560 180 540 220 520 C240 500 260 460 280 430 C300 400 320 380 340 350 C360 330 380 310 400 300 C420 290 440 295 460 310 C480 325 500 360 520 410 C530 450 520 480 500 510 C480 540 440 560 400 570 C360 580 320 590 280 600 C240 610 180 640 140 640 C120 640 115 630 120 620 Z" fill="#f2f7ff" stroke="#2a5298" stroke-width="4" />
+            <circle class="marker" cx="105" cy="620" r="12" />
+            <text class="marker-label" x="125" y="625">Reykjavík</text>
+            <circle class="marker" cx="210" cy="520" r="12" />
+            <text class="marker-label" x="230" y="525">Seljalandsfoss</text>
+            <circle class="marker" cx="270" cy="480" r="12" />
+            <text class="marker-label" x="290" y="485">Black Sand Beach</text>
+            <circle class="marker" cx="320" cy="430" r="12" />
+            <text class="marker-label" x="340" y="435">Diamond Beach</text>
+            <circle class="marker" cx="430" cy="320" r="12" />
+            <text class="marker-label" x="450" y="325">Geysir</text>
+          </svg>
         </div>
       </div>
 
@@ -330,6 +358,43 @@
             Ein spektakuläres Naturphänomen, das man live erleben sollte!
           </p>
           <p><a href="https://www.google.com/maps/place/Geysir+geothermal+area,+Iceland/@64.3122,/-20.2975,13z" target="_blank" rel="noopener">📍 Auf der Karte ansehen</a></p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>DEINE REISE</h2>
+        </div>
+        <div class="card-content">
+          <p>
+            Dein Reiseplan führt dich entlang der schönsten Ziele in Südisland: Start in Reykjavik, weiter nach Seljalandsfoss, dann zum Black Sand Beach und zum Diamond Beach. Als krönender Abschluss wartet der Geysir im Westen.
+          </p>
+          <p>
+            Klicke auf den Reiseplan, um die Route mit einer visuellen Karte und einer kompakten Übersicht zu sehen.
+          </p>
+          <button class="journey-button" id="journeyButton">REISEPLAN ANZEIGEN</button>
+          <div class="journey-image hidden" id="journeyMap">
+            <div class="map-image">
+              <svg viewBox="0 0 600 700" role="img" aria-label="Reisekarte Islands mit markierten Etappen">
+                <rect width="600" height="700" fill="#eaf0fb" />
+                <path d="M120 620 C140 560 180 540 220 520 C240 500 260 460 280 430 C300 400 320 380 340 350 C360 330 380 310 400 300 C420 290 440 295 460 310 C480 325 500 360 520 410 C530 450 520 480 500 510 C480 540 440 560 400 570 C360 580 320 590 280 600 C240 610 180 640 140 640 C120 640 115 630 120 620 Z" fill="#f7fbff" stroke="#2a5298" stroke-width="4" />
+                <circle class="marker" cx="105" cy="620" r="12" />
+                <text class="marker-label" x="125" y="625">Reykjavík</text>
+                <circle class="marker" cx="210" cy="520" r="12" />
+                <text class="marker-label" x="230" y="525">Seljalandsfoss</text>
+                <circle class="marker" cx="270" cy="480" r="12" />
+                <text class="marker-label" x="290" y="485">Black Sand Beach</text>
+                <circle class="marker" cx="320" cy="430" r="12" />
+                <text class="marker-label" x="340" y="435">Diamond Beach</text>
+                <circle class="marker" cx="430" cy="320" r="12" />
+                <text class="marker-label" x="450" y="325">Geysir</text>
+              </svg>
+            </div>
+            <div class="journey-summary">
+              <p>Route: Reykjavik → Seljalandsfoss → Black Sand Beach → Diamond Beach → Geysir</p>
+              <p>Fahrzeit: ca. 5-6 Stunden reine Fahrtzeit, plus Zeit für Fotostopps und Erkundungen.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
