@@ -1,4 +1,4 @@
-<!doctype html>
+gut <!doctype html>
 <html>
   <head>
     <title>Sehenswürdigkeiten Südisland</title>
@@ -29,8 +29,9 @@
         overflow: hidden;
       }
 
+      /* wenn versteckt: das gesamte Hero-Feld seitlich verschieben, kleiner 'Handle' sichtbar lassen */
       .hero.hidden {
-        transform: translateX(-calc(100% - 100px));
+        transform: translateX(calc(-100% + 100px));
       }
 
       .hero-content {
@@ -42,25 +43,14 @@
         color: white;
         z-index: 1;
         width: min(80%, 800px);
-        transition: all 0.8s ease;
+        transition: opacity 0.4s ease, transform 0.4s ease;
       }
 
+      /* Inhalt ausblenden, ohne den Hintergrund zu beeinflussen */
       .hero.hidden .hero-content {
-        left: 50px;
-        top: 50%;
-        transform: translate(0, -50%);
-        writing-mode: vertical-rl;
-        text-orientation: mixed;
-        width: auto;
-        font-size: 1.2em;
-        max-width: 100px;
-        white-space: nowrap;
-      }
-
-      .hero.hidden h1 {
-        font-size: 1.1em;
-        margin-bottom: 0;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        pointer-events: none;
+        transform: translate(-50%, -40%);
       }
 
       .hero h1 {
@@ -69,20 +59,28 @@
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
       }
 
+      /* Der Pfeil ist als 'Handle' fixiert, bleibt im Viewport sichtbar */
       .hero-arrow {
-        position: absolute;
+        position: fixed;
         bottom: 40px;
         left: 40px;
         font-size: 4em;
         cursor: pointer;
         animation: bounce 2s infinite;
         transition: transform 0.3s, top 0.3s, left 0.3s, bottom 0.3s;
+        z-index: 200;
+        color: white;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
       }
 
-      .hero.hidden .hero-arrow {
+      /* Position des Handles, wenn das Hero eingeklappt ist */
+      .hero.hidden ~ .content .hero-arrow, /* fallback falls Struktur angepasst wird */
+      .hero.hidden .hero-arrow,
+      .hero.hidden + .content .hero-arrow {
         bottom: auto;
-        top: 40px;
-        left: 30px;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
       }
 
       .hero-arrow:hover {
