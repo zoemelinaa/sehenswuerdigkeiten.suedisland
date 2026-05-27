@@ -1,92 +1,235 @@
 <!doctype html>
 <html>
-  <head><title>Sehenswürdigkeiten Südisland</title></head>
+  <head>
+    <title>Sehenswürdigkeiten Südisland</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .hero {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7aa8d1 100%);
+        height: 100vh;
+        position: relative;
+        transition: margin-left 0.8s ease-out;
+      }
+
+      .hero.hidden {
+        margin-left: -100%;
+      }
+
+      .hero-content {
+        text-align: center;
+        color: white;
+        z-index: 1;
+      }
+
+      .hero h1 {
+        font-size: 4em;
+        margin-bottom: 30px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .hero-arrow {
+        position: absolute;
+        bottom: 40px;
+        right: 40px;
+        font-size: 4em;
+        cursor: pointer;
+        animation: bounce 2s infinite;
+        transition: transform 0.3s;
+      }
+
+      .hero-arrow:hover {
+        transform: scale(1.1);
+      }
+
+      @keyframes bounce {
+        0%, 100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .content {
+        padding: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+        transition: all 0.8s ease-out;
+      }
+
+      .title-small {
+        display: none;
+        font-size: 2em;
+        margin-bottom: 30px;
+        color: #1e3c72;
+      }
+
+      .content.show-title .title-small {
+        display: block;
+      }
+
+      .content.show-title .map-container {
+        margin-top: 30px;
+      }
+
+      .map-container {
+        margin-bottom: 50px;
+      }
+
+      .map-container iframe {
+        width: 100%;
+        height: 450px;
+      }
+
+      h2 {
+        color: #1e3c72;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        font-size: 1.8em;
+      }
+
+      img {
+        width: 100%;
+        max-width: 800px;
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+        display: block;
+      }
+
+      p {
+        line-height: 1.6;
+        color: #333;
+        margin-bottom: 15px;
+      }
+
+      a {
+        color: #2a5298;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
   <body>
-    <h1>Sehenswürdigkeiten Südisland</h1>
-    <iframe
-      id="karte"
-      width="100%"
-      height="450"
-      style="border:0;"
-      loading="lazy"
-      allowfullscreen
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d370796.48314052083!2d-22.576565545419865!3d64.7305487423921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48d4d7096897b7bb%3A0xf1f8c0560d6f27b5!2sIceland!5e0!3m2!1sde!2sde!4v1700000000000"
-    ></iframe>
+    <div class="hero" id="hero">
+      <div class="hero-content">
+        <h1>Sehenswürdigkeiten Südisland</h1>
+      </div>
+      <div class="hero-arrow" id="arrow">➜</div>
+    </div>
 
-    <h2>1. Diamond Beach</h2>
-    <img
-      src="images/diamond-beach.jpg"
-      alt="Diamond Beach in Island"
-      width="100%"
-      style="max-width:800px; border:1px solid #ccc; margin-bottom:20px;"
-    />
-    <p>
-      Der Diamond Beach ist eine der faszinierendsten Naturwunder Islands und liegt in der Nähe von Höfn im Südosten. 
-      Mit seinem schwarzen Lavasand und den glitzernden Gletscherbrocken sieht dieser Strand aus wie ein Diamantenbett. 
-      Die Eiskristalle am Ufer reflektieren das Sonnenlicht und schaffen eine magische Atmosphäre. 
-      Ein absolutes Muss für Fotografen und Naturliebhaber!
-    </p>
-    <p><a href="https://www.google.com/maps/place/Diamond+Beach,+Iceland/@64.0382,/-16.2435,13z" target="_blank" rel="noopener">📍 Auf der Karte ansehen</a></p>
+    <div class="content" id="content">
+      <h1 class="title-small">Sehenswürdigkeiten Südisland</h1>
 
-    <h2>2. Black Sand Beach</h2>
-    <img
-      src="images/black-sand-beach.jpg"
-      alt="Black Sand Beach in Island"
-      width="100%"
-      style="max-width:800px; border:1px solid #ccc; margin-bottom:20px;"
-    />
-    <p>
-      Der Reynisfjara Black Sand Beach ist einer der spektakulärsten Strände Islands und befindet sich in der Nähe des Dorfes Vik. 
-      Der Strand wird von majestätischen Basaltsäulen und hohen Klippen eingerahmt, die eine dramatische Kulisse bilden. 
-      Die schwarze Asche des Vulkansands kontrastiert faszinierend mit den weißen Gischt der Atlantikwellen. 
-      Ein unvergessliches Naturschauspiel, das man gesehen haben muss!
-    </p>
-    <p><a href="https://www.google.com/maps/place/Reynisfjara+Black+Sand+Beach,+Iceland/@63.8805,/-19.0362,13z" target="_blank" rel="noopener">📍 Auf der Karte ansehen</a></p>
+      <div class="map-container">
+        <iframe
+          id="karte"
+          style="border:0;"
+          loading="lazy"
+          allowfullscreen
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d370796.48314052083!2d-22.576565545419865!3d64.7305487423921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48d4d7096897b7bb%3A0xf1f8c0560d6f27b5!2sIceland!5e0!3m2!1sde!2sde!4v1700000000000"
+        ></iframe>
+      </div>
 
-    <h2>3. Seljalandsfoss</h2>
-    <img
-      src="images/seljalandsfoss.jpg"
-      alt="Seljalandsfoss Wasserfall in Island"
-      width="100%"
-      style="max-width:800px; border:1px solid #ccc; margin-bottom:20px;"
-    />
-    <p>
-      Der Seljalandsfoss ist ein einzigartiger Wasserfall in Südisland, der sich durch eine besondere Eigenschaft auszeichnet: Man kann hinter dem fallenden Wasser entlanggehen. 
-      Mit einer Fallhöhe von 60 Metern stürzt der Wasserfall über eine schwarze Felswand ab und bietet spektakuläre Fotomöglichkeiten. 
-      Der Weg hinter dem Wasserfall ist eine aufregende Erfahrung, bei der man das Wasser hautnah erleben kann. 
-      Ein Highlight auf jeder Island-Reise!
-    </p>
-    <p><a href="https://www.google.com/maps/place/Seljalandsfoss,+Iceland/@63.9250,/-19.0087,13z" target="_blank" rel="noopener">📍 Auf der Karte ansehen</a></p>
+      <h2>1. Diamond Beach</h2>
+      <img
+        src="images/diamond-beach.jpg"
+        alt="Diamond Beach in Island"
+      />
+      <p>
+        Der Diamond Beach ist eine der faszinierendsten Naturwunder Islands und liegt in der Nähe von Höfn im Südosten. 
+        Mit seinem schwarzen Lavasand und den glitzernden Gletscherbrocken sieht dieser Strand aus wie ein Diamantenbett. 
+        Die Eiskristalle am Ufer reflektieren das Sonnenlicht und schaffen eine magische Atmosphäre. 
+        Ein absolutes Muss für Fotografen und Naturliebhaber!
+      </p>
+      <p><a href="https://www.google.com/maps/place/Diamond+Beach,+Iceland/@64.0382,/-16.2435,13z" target="_blank" rel="noopener">📍 Auf der Karte ansehen</a></p>
 
-    <h2>4. Reykjavik</h2>
-    <img
-      src="images/reykjavik.jpg"
-      alt="Reykjavik Hauptstadt Island"
-      width="100%"
-      style="max-width:800px; border:1px solid #ccc; margin-bottom:20px;"
-    />
-    <p>
-      Reykjavik ist die Hauptstadt und größte Stadt Islands und das kulturelle Herz des Landes. 
-      Die farbenfrohen Häuser, modernen Gebäude und das vibrierende Nachtleben machen die Stadt zu einem faszinierenden Ort. 
-      Sehenswürdigkeiten wie die Hallgrímskirkja-Kirche und die Perlan-Kuppel sind weltbekannt. 
-      Reykjavik verbindet nordische Kultur mit modernem Lifestyle und ist perfekt für Stadtentdecker!
-    </p>
-    <p><a href="https://www.google.com/maps/place/Reykjavik,+Iceland/@64.1466,/-21.9426,12z" target="_blank" rel="noopener">📍 Auf der Karte ansehen</a></p>
+      <h2>2. Black Sand Beach</h2>
+      <img
+        src="images/black-sand-beach.jpg"
+        alt="Black Sand Beach in Island"
+      />
+      <p>
+        Der Reynisfjara Black Sand Beach ist einer der spektakulärsten Strände Islands und befindet sich in der Nähe des Dorfes Vik. 
+        Der Strand wird von majestätischen Basaltsäulen und hohen Klippen eingerahmt, die eine dramatische Kulisse bilden. 
+        Die schwarze Asche des Vulkansands kontrastiert faszinierend mit den weißen Gischt der Atlantikwellen. 
+        Ein unvergessliches Naturschauspiel, das man gesehen haben muss!
+      </p>
+      <p><a href="https://www.google.com/maps/place/Reynisfjara+Black+Sand+Beach,+Iceland/@63.8805,/-19.0362,13z" target="_blank" rel="noopener">📍 Auf der Karte ansehen</a></p>
 
-    <h2>5. Großer Geisir</h2>
-    <img
-      src="images/geisir.jpg"
-      alt="Großer Geisir in Island"
-      width="100%"
-      style="max-width:800px; border:1px solid #ccc; margin-bottom:20px;"
-    />
-    <p>
-      Der Geisir ist eine heiße Springquelle im Tal Haukadalur im Westen Islands und zählt zu den berühmtesten Naturwundern des Landes. 
-      Der aktive Geisir Strokkur schießt alle 5-10 Minuten eine 40 Meter hohe Wasserfontäne in die Luft und beeindruckt Besucher weltweit. 
-      Das Gebiet ist gesäumt von dampfenden heißen Quellen und farbig gefärbtem Kieselgestein. 
-      Ein spektakuläres Naturphänomen, das man live erleben sollte!
-    </p>
-    <p><a href="https://www.google.com/maps/place/Geysir+geothermal+area,+Iceland/@64.3122,/-20.2975,13z" target="_blank" rel="noopener">📍 Auf der Karte ansehen</a></p>
+      <h2>3. Seljalandsfoss</h2>
+      <img
+        src="images/seljalandsfoss.jpg"
+        alt="Seljalandsfoss Wasserfall in Island"
+      />
+      <p>
+        Der Seljalandsfoss ist ein einzigartiger Wasserfall in Südisland, der sich durch eine besondere Eigenschaft auszeichnet: Man kann hinter dem fallenden Wasser entlanggehen. 
+        Mit einer Fallhöhe von 60 Metern stürzt der Wasserfall über eine schwarze Felswand ab und bietet spektakuläre Fotomöglichkeiten. 
+        Der Weg hinter dem Wasserfall ist eine aufregende Erfahrung, bei der man das Wasser hautnah erleben kann. 
+        Ein Highlight auf jeder Island-Reise!
+      </p>
+      <p><a href="https://www.google.com/maps/place/Seljalandsfoss,+Iceland/@63.9250,/-19.0087,13z" target="_blank" rel="noopener">📍 Auf der Karte ansehen</a></p>
 
+      <h2>4. Reykjavik</h2>
+      <img
+        src="images/reykjavik.jpg"
+        alt="Reykjavik Hauptstadt Island"
+      />
+      <p>
+        Reykjavik ist die Hauptstadt und größte Stadt Islands und das kulturelle Herz des Landes. 
+        Die farbenfrohen Häuser, modernen Gebäude und das vibrierende Nachtleben machen die Stadt zu einem faszinierenden Ort. 
+        Sehenswürdigkeiten wie die Hallgrímskirkja-Kirche und die Perlan-Kuppel sind weltbekannt. 
+        Reykjavik verbindet nordische Kultur mit modernem Lifestyle und ist perfekt für Stadtentdecker!
+      </p>
+      <p><a href="https://www.google.com/maps/place/Reykjavik,+Iceland/@64.1466,/-21.9426,12z" target="_blank" rel="noopener">📍 Auf der Karte ansehen</a></p>
+
+      <h2>5. Großer Geisir</h2>
+      <img
+        src="images/geisir.jpg"
+        alt="Großer Geisir in Island"
+      />
+      <p>
+        Der Geisir ist eine heiße Springquelle im Tal Haukadalur im Westen Islands und zählt zu den berühmtesten Naturwundern des Landes. 
+        Der aktive Geisir Strokkur schießt alle 5-10 Minuten eine 40 Meter hohe Wasserfontäne in die Luft und beeindruckt Besucher weltweit. 
+        Das Gebiet ist gesäumt von dampfenden heißen Quellen und farbig gefärbtem Kieselgestein. 
+        Ein spektakuläres Naturphänomen, das man live erleben sollte!
+      </p>
+      <p><a href="https://www.google.com/maps/place/Geysir+geothermal+area,+Iceland/@64.3122,/-20.2975,13z" target="_blank" rel="noopener">📍 Auf der Karte ansehen</a></p>
+    </div>
+
+    <script>
+      const hero = document.getElementById('hero');
+      const arrow = document.getElementById('arrow');
+      const content = document.getElementById('content');
+      let isExpanded = false;
+
+      arrow.addEventListener('click', function() {
+        if (!isExpanded) {
+          hero.classList.add('hidden');
+          content.classList.add('show-title');
+          isExpanded = true;
+        } else {
+          hero.classList.remove('hidden');
+          content.classList.remove('show-title');
+          isExpanded = false;
+          window.scrollTo(0, 0);
+        }
+      });
+    </script>
   </body>
 </html>
