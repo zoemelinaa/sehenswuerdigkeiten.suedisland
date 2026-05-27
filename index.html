@@ -56,8 +56,41 @@ gut <!doctype html>
       .hero h1 {
         font-size: 4em;
         margin-bottom: 30px;
-        color: #2ecc71;
+        color: white;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .card {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        margin-bottom: 30px;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      .card-header {
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7aa8d1 100%);
+        padding: 28px 30px;
+      }
+
+      .card-header h2 {
+        margin: 0;
+        color: white;
+        font-size: 1.8em;
+      }
+
+      .card-content {
+        padding: 30px;
+      }
+
+      .card-content p:last-child {
+        margin-bottom: 0;
+      }
+
+      .card-content a {
+        display: inline-block;
+        margin-top: 12px;
       }
 
       /* Der Pfeil ist als 'Handle' fixiert, bleibt im Viewport sichtbar */
@@ -162,50 +195,80 @@ gut <!doctype html>
         ></iframe>
       </div>
 
-      <h2>1. Diamond Beach</h2>
-      <p>
-        Der Diamond Beach ist eine der faszinierendsten Naturwunder Islands und liegt in der Nähe von Höfn im Südosten. 
-        Mit seinem schwarzen Lavasand und den glitzernden Gletscherbrocken sieht dieser Strand aus wie ein Diamantenbett. 
-        Die Eiskristalle am Ufer reflektieren das Sonnenlicht und schaffen eine magische Atmosphäre. 
-        Ein absolutes Muss für Fotografen und Naturliebhaber!
-      </p>
-      <p><a href="https://www.google.com/maps/place/Diamond+Beach,+Iceland/@64.0382,/-16.2435,13z" target="_blank" rel="noopener">📍 Auf der Karte ansehen</a></p>
+      <div class="card">
+        <div class="card-header">
+          <h2>1. Diamond Beach</h2>
+        </div>
+        <div class="card-content">
+          <p>
+            Der Diamond Beach ist eine der faszinierendsten Naturwunder Islands und liegt in der Nähe von Höfn im Südosten. 
+            Mit seinem schwarzen Lavasand und den glitzernden Gletscherbrocken sieht dieser Strand aus wie ein Diamantenbett. 
+            Die Eiskristalle am Ufer reflektieren das Sonnenlicht und schaffen eine magische Atmosphäre. 
+            Ein absolutes Muss für Fotografen und Naturliebhaber!
+          </p>
+          <p><a href="https://www.google.com/maps/place/Diamond+Beach,+Iceland/@64.0382,/-16.2435,13z" target="_blank" rel="noopener">📍 Auf der Karte ansehen</a></p>
+        </div>
+      </div>
 
-      <h2>2. Black Sand Beach</h2>
-      <p>
-        Der Reynisfjara Black Sand Beach ist einer der spektakulärsten Strände Islands und befindet sich in der Nähe des Dorfes Vik. 
-        Der Strand wird von majestätischen Basaltsäulen und hohen Klippen eingerahmt, die eine dramatische Kulisse bilden. 
-        Die schwarze Asche des Vulkansands kontrastiert faszinierend mit den weißen Gischt der Atlantikwellen. 
-        Ein unvergessliches Naturschauspiel, das man gesehen haben muss!
-      </p>
-      <p><a href="https://www.google.com/maps/place/Reynisfjara+Black+Sand+Beach,+Iceland/@63.8805,/-19.0362,13z" target="_blank" rel="noopener">📍 Auf der Karte ansehen</a></p>
+      <div class="card">
+        <div class="card-header">
+          <h2>2. Black Sand Beach</h2>
+        </div>
+        <div class="card-content">
+          <p>
+            Der Reynisfjara Black Sand Beach ist einer der spektakulärsten Strände Islands und befindet sich in der Nähe des Dorfes Vik. 
+            Der Strand wird von majestätischen Basaltsäulen und hohen Klippen eingerahmt, die eine dramatische Kulisse bilden. 
+            Die schwarze Asche des Vulkansands kontrastiert faszinierend mit den weißen Gischt der Atlantikwellen. 
+            Ein unvergessliches Naturschauspiel, das man gesehen haben muss!
+          </p>
+          <p><a href="https://www.google.com/maps/place/Reynisfjara+Black+Sand+Beach,+Iceland/@63.8805,/-19.0362,13z" target="_blank" rel="noopener">📍 Auf der Karte ansehen</a></p>
+        </div>
+      </div>
 
-      <h2>3. Seljalandsfoss</h2>
-      <p>
-        Der Seljalandsfoss ist ein einzigartiger Wasserfall in Südisland, der sich durch eine besondere Eigenschaft auszeichnet: Man kann hinter dem fallenden Wasser entlanggehen. 
-        Mit einer Fallhöhe von 60 Metern stürzt der Wasserfall über eine schwarze Felswand ab und bietet spektakuläre Fotomöglichkeiten. 
-        Der Weg hinter dem Wasserfall ist eine aufregende Erfahrung, bei der man das Wasser hautnah erleben kann. 
-        Ein Highlight auf jeder Island-Reise!
-      </p>
-      <p><a href="https://www.google.com/maps/place/Seljalandsfoss,+Iceland/@63.9250,/-19.0087,13z" target="_blank" rel="noopener">📍 Auf der Karte ansehen</a></p>
+      <div class="card">
+        <div class="card-header">
+          <h2>3. Seljalandsfoss</h2>
+        </div>
+        <div class="card-content">
+          <p>
+            Der Seljalandsfoss ist ein einzigartiger Wasserfall in Südisland, der sich durch eine besondere Eigenschaft auszeichnet: Man kann hinter dem fallenden Wasser entlanggehen. 
+            Mit einer Fallhöhe von 60 Metern stürzt der Wasserfall über eine schwarze Felswand ab und bietet spektakuläre Fotomöglichkeiten. 
+            Der Weg hinter dem Wasserfall ist eine aufregende Erfahrung, bei der man das Wasser hautnah erleben kann. 
+            Ein Highlight auf jeder Island-Reise!
+          </p>
+          <p><a href="https://www.google.com/maps/place/Seljalandsfoss,+Iceland/@63.9250,/-19.0087,13z" target="_blank" rel="noopener">📍 Auf der Karte ansehen</a></p>
+        </div>
+      </div>
 
-      <h2>4. Reykjavik</h2>
-      <p>
-        Reykjavik ist die Hauptstadt und größte Stadt Islands und das kulturelle Herz des Landes. 
-        Die farbenfrohen Häuser, modernen Gebäude und das vibrierende Nachtleben machen die Stadt zu einem faszinierenden Ort. 
-        Sehenswürdigkeiten wie die Hallgrímskirkja-Kirche und die Perlan-Kuppel sind weltbekannt. 
-        Reykjavik verbindet nordische Kultur mit modernem Lifestyle und ist perfekt für Stadtentdecker!
-      </p>
-      <p><a href="https://www.google.com/maps/place/Reykjavik,+Iceland/@64.1466,/-21.9426,12z" target="_blank" rel="noopener">📍 Auf der Karte ansehen</a></p>
+      <div class="card">
+        <div class="card-header">
+          <h2>4. Reykjavik</h2>
+        </div>
+        <div class="card-content">
+          <p>
+            Reykjavik ist die Hauptstadt und größte Stadt Islands und das kulturelle Herz des Landes. 
+            Die farbenfrohen Häuser, modernen Gebäude und das vibrierende Nachtleben machen die Stadt zu einem faszinierenden Ort. 
+            Sehenswürdigkeiten wie die Hallgrímskirkja-Kirche und die Perlan-Kuppel sind weltbekannt. 
+            Reykjavik verbindet nordische Kultur mit modernem Lifestyle und ist perfekt für Stadtentdecker!
+          </p>
+          <p><a href="https://www.google.com/maps/place/Reykjavik,+Iceland/@64.1466,/-21.9426,12z" target="_blank" rel="noopener">📍 Auf der Karte ansehen</a></p>
+        </div>
+      </div>
 
-      <h2>5. Großer Geisir</h2>
-      <p>
-        Der Geisir ist eine heiße Springquelle im Tal Haukadalur im Westen Islands und zählt zu den berühmtesten Naturwundern des Landes. 
-        Der aktive Geisir Strokkur schießt alle 5-10 Minuten eine 40 Meter hohe Wasserfontäne in die Luft und beeindruckt Besucher weltweit. 
-        Das Gebiet ist gesäumt von dampfenden heißen Quellen und farbig gefärbtem Kieselgestein. 
-        Ein spektakuläres Naturphänomen, das man live erleben sollte!
-      </p>
-      <p><a href="https://www.google.com/maps/place/Geysir+geothermal+area,+Iceland/@64.3122,/-20.2975,13z" target="_blank" rel="noopener">📍 Auf der Karte ansehen</a></p>
+      <div class="card">
+        <div class="card-header">
+          <h2>5. Großer Geisir</h2>
+        </div>
+        <div class="card-content">
+          <p>
+            Der Geisir ist eine heiße Springquelle im Tal Haukadalur im Westen Islands und zählt zu den berühmtesten Naturwundern des Landes. 
+            Der aktive Geisir Strokkur schießt alle 5-10 Minuten eine 40 Meter hohe Wasserfontäne in die Luft und beeindruckt Besucher weltweit. 
+            Das Gebiet ist gesäumt von dampfenden heißen Quellen und farbig gefärbtem Kieselgestein. 
+            Ein spektakuläres Naturphänomen, das man live erleben sollte!
+          </p>
+          <p><a href="https://www.google.com/maps/place/Geysir+geothermal+area,+Iceland/@64.3122,/-20.2975,13z" target="_blank" rel="noopener">📍 Auf der Karte ansehen</a></p>
+        </div>
+      </div>
     </div>
 
     <script>
